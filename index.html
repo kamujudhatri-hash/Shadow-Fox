@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+body{
+    background:#f4f7fb;
+}
+
+/* HEADER */
+header{
+    background:#2ec4a6;
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header h2{color:white;}
+nav a{
+    color:white;
+    margin-left:25px;
+    text-decoration:none;
+    font-size:17px;
+    cursor:pointer;
+}
+nav a:hover{text-decoration:underline;}
+
+/* PAGES */
+.page{
+    display:none;
+    min-height:calc(100vh - 120px);
+    padding:80px 100px;
+    background:white;
+}
+.page.active{display:block;}
+
+/* HOME */
+.home h4{color:#555;}
+.home h1{font-size:42px;}
+.home span{color:#2ec4a6;}
+.home p{margin:20px 0;line-height:1.6;}
+button{
+    padding:12px 26px;
+    margin-right:15px;
+    font-size:16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+.primary{background:#2ec4a6;color:white;}
+.outline{background:white;border:2px solid #2ec4a6;color:#2ec4a6;}
+
+/* COMMON BOX */
+.box{
+    max-width:950px;
+    margin:auto;
+    background:white;
+    padding:45px;
+    border-radius:12px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* RESUME STYLES */
+.resume-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+.name-badge{
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+    background:#2ec4a6;
+    padding:10px 22px;
+    border-radius:30px;
+    display:inline-block;
+}
+.email-badge{
+    margin-top:10px;
+    display:inline-block;
+    background:#e6f7f3;
+    color:#2ec4a6;
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:500;
+}
+
+.resume-section{
+    margin-top:35px;
+}
+.resume-section h3{
+    color:#2ec4a6;
+    margin-bottom:12px;
+    position:relative;
+}
+.resume-section h3::after{
+    content:"";
+    width:60px;
+    height:3px;
+    background:#2ec4a6;
+    position:absolute;
+    bottom:-6px;
+    left:0;
+}
+
+.highlight-chip{
+    display:inline-block;
+    background:#2ec4a6;
+    color:white;
+    padding:5px 12px;
+    border-radius:15px;
+    margin:5px 6px 5px 0;
+    font-size:14px;
+}
+
+.resume-section ul{
+    margin-top:10px;
+    line-height:1.9;
+}
+
+/* FOOTER */
+footer{
+    background:#2ec4a6;
+    color:white;
+    text-align:center;
+    padding:12px;
+}
+</style>
+
+<script>
+function openPage(id){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+window.onload=()=>openPage("home");
+</script>
+
+</head>
+<body>
+
+<header>
+    <h2>My Portfolio</h2>
+    <nav>
+        <a onclick="openPage('home')">Home</a>
+        <a onclick="openPage('skills')">Skills</a>
+        <a onclick="openPage('resume')">Resume</a>
+        <a onclick="openPage('contact')">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div id="home" class="page active home">
+    <h4>Hello, I'm</h4>
+    <h1>Dhatri Aneesha <span>Kamuju</span></h1>
+    <p>
+        I am a Computer Science Engineering student passionate about
+        programming, web development and learning new technologies.
+    </p>
+    <button class="primary" onclick="openPage('contact')">Hire Me</button>
+    <button class="outline" onclick="openPage('resume')">Get Resume</button>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="page">
+    <div class="box">
+        <h2 style="color:#2ec4a6;">Technical Skills</h2>
+        <ul>
+            <li>C</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Data Structures</li>
+        </ul>
+    </div>
+</div>
+
+<!-- RESUME -->
+<div id="resume" class="page">
+    <div class="box">
+
+        <div class="resume-header">
+            <div class="name-badge">Dhatri Aneesha Kamuju</div><br>
+            <div class="email-badge">kamujudhatri@gmail.com</div>
+        </div>
+
+        <div class="resume-section">
+            <h3>LinkedIn</h3>
+            <p>
+                <a href="https://www.linkedin.com/in/dhatri-aneesha-kamuju-a0243a320" target="_blank">
+                    https://www.linkedin.com/in/dhatri-aneesha-kamuju-a0243a320
+                </a>
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h3>Career Objective</h3>
+            <p>
+                To secure a <b>challenging position</b> where I can apply my
+                <b>computer science knowledge</b> and grow professionally.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h3>Elective Courses</h3>
+            <span class="highlight-chip">NPTEL – Python</span>
+            <span class="highlight-chip">NPTEL – Cloud Computing</span>
+        </div>
+
+        <div class="resume-section">
+            <h3>Education</h3>
+            <ul>
+                <li><b>B.Tech CSE</b> – Srinivasa Institute of Engineering and Technology</li>
+                <li><b>Intermediate</b> – Aditya Junior College</li>
+                <li><b>SSC</b> – Aditya School</li>
+            </ul>
+        </div>
+
+        <div class="resume-section">
+            <h3>Languages Known</h3>
+            <span class="highlight-chip">Telugu</span>
+            <span class="highlight-chip">English</span>
+            <span class="highlight-chip">Hindi</span>
+        </div>
+
+        <div class="resume-section">
+            <h3>Hobbies</h3>
+            <ul>
+                <li>Exploring new things</li>
+                <li>Listening to music</li>
+            </ul>
+        </div>
+
+        <div class="resume-section">
+            <h3>Strengths</h3>
+            <span class="highlight-chip">Quick Learner</span>
+            <span class="highlight-chip">Team Player</span>
+            <span class="highlight-chip">Good Communication</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+    <div class="box">
+        <h2 style="color:#2ec4a6;">Contact Me</h2>
+        <p>Email: kamujudhatri@gmail.com</p>
+        <p>
+            <a href="https://www.linkedin.com/in/dhatri-aneesha-kamuju-a0243a320" target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+        <p>
+            <a href="https://github.com/" target="_blank">GitHub Profile</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    © 2026 My Portfolio
+</footer>
+
+</body>
+</html>
